@@ -52,3 +52,33 @@ All GND wires from the servos are connected to a common GND pin on the Arduino. 
 
 ### After 2 Seconds (at 90 degrees):
 ![Screenshot 2025-07-10 013645](https://github.com/user-attachments/assets/08b047cf-e017-4e68-832c-5c78e9f2f81a)
+
+
+## Algorithm
+
+**Objective:** Control four servo motors using Arduino. Perform a sweep motion for 2 seconds, then hold all servos at 90 degrees.
+
+### Steps:
+
+1. Start the system.
+
+2. Initialize four servo motor objects:
+   - Attach each servo motor to its assigned digital pin.
+
+3. Record the start time using `millis()`.
+
+4. Begin sweeping motion:
+   - While elapsed time is less than 2000 milliseconds:
+     - a. Sweep from 0 to 180 degrees in steps of 1 degree.
+     - b. Sweep back from 180 to 0 degrees.
+     - c. At each step, write the current angle to all servos.
+     - d. Apply a small delay after each step (e.g., 15 ms).
+     - e. Continuously check elapsed time.
+
+5. Once 2 seconds have passed, exit the sweeping loop.
+
+6. Write a value of 90 (or adjusted angle) to all four servos to hold position.
+
+7. Stop further execution (e.g., using an infinite loop or `while(true)`).
+
+
